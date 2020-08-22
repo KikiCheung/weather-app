@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/ac6e37b666.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <form id="search-form">
+        <div class="form-row">
+          <div class="col-8">
+            <input
+              type="search"
+              placeholder="Enter a city"
+              autofocus
+              class="form-control"
+              id="enter-city"
+            />
+          </div>
+          <div class="col-2">
+            <input type="submit" value="Search" class="btn btn-primary" />
+          </div>
+          <div class="col-2">
+            <button id="current-location-button" class="btn btn-info">
+              Current
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-7">
+          <div class="currentweatherimg">
+            <i class="fas fa-cloud-sun-rain"></i>
+          </div>
+          <h1>
+            -
+          </h1>
+          <p id="day-time">
+            - --:--
+          </p>
+          <h2>
+            <span id="temp">--</span>
+            <span id="units">
+              <a id="cTemp" href="#">°C</a> |
+              <a id="fTemp" href="#">°F</a>
+            </span>
+          </h2>
+          <p class="otherinfo">
+            Humidity: <span id="humidity">--</span> %
+            <br />
+            Wind: <span id="wind">--</span> km/h
+          </p>
+        </div>
+        <div class="col-4">
+          <ul class="weatherimg">
+            <li>
+              <i class="fas fa-cloud-rain"></i>
+            </li>
+            <li>
+              <i class="fas fa-umbrella"></i>
+            </li>
+            <li>
+              <i class="fas fa-cloud-rain"></i>
+            </li>
+            <li>
+              <i class="fas fa-umbrella"></i>
+            </li>
+            <li>
+              <i class="fas fa-cloud-rain"></i>
+            </li>
+          </ul>
+        </div>
+        <div class="col-1">
+          <ul class="temp">
+            <li>Mon<br />30°</li>
+            <li>Tue<br />30°</li>
+            <li>Wed<br />29°</li>
+            <li>Thu<br />27°</li>
+            <li>Fri<br />27°</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer>
+      Coded by Kiki Cheung
+    </footer>
+    <script src="src/script.js"></script>
+  </body>
+</html>

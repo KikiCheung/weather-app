@@ -1,0 +1,80 @@
+h1 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.container {
+  background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
+  padding: 25px 35px;
+  max-width: 550px;
+  max-height: 680px;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
+.currentweatherimg {
+  font-size: 120px;
+  text-align: center;
+  color: #0d47a1;
+  margin: 20px 0 5px 0;
+  padding: 30px;
+  border: 10px solid white;
+  border-radius: 50%;
+}
+
+#day-time {
+  font-size: 25px;
+  margin: 0;
+}
+
+#temp {
+  font-size: 120px;
+  color: #1a237e;
+  margin: 0;
+}
+
+#units {
+  font-size: 23px;
+  position: relative;
+  top: -65px;
+}
+
+.otherinfo {
+  font-size: 20px;
+  margin: 0;
+}
+
+.weatherimg {
+  position: relative;
+  left: -10px;
+}
+
+.weatherimg li {
+  font-size: 40px;
+  color: #1976d2;
+  text-align: center;
+  margin: 20px;
+  padding: 15px;
+  border: 5px solid white;
+  border-radius: 50%;
+}
+
+.temp {
+  position: relative;
+  top: -20px;
+  left: -30px;
+}
+
+.temp li {
+  margin: 70px auto;
+}
