@@ -26,6 +26,9 @@ function formatDate(timestamp) {
 //weatherdisplay
 function showWeather(response) {
   document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#day-time").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
   document.querySelector("#temp").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -35,9 +38,12 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-  document.querySelector("#day-time").innerHTML = formatDate(
-    response.data.dt * 1000
-  );
+  document
+    .querySelector("#current-weather-img")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
 }
 
 //searchcity
