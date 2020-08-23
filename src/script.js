@@ -11,6 +11,11 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[now.getDay()]; //between 0 and 6
+  return `${day} ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let now = new Date(timestamp);
   let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -20,10 +25,10 @@ function formatDate(timestamp) {
     minutes = `0${minutes}`;
   }
 
-  return `${day} ${hours}:${minutes}`;
+  return `${hours}:${minutes}`;
 }
 
-//weatherdisplay
+//currentweatherdisplay
 function showWeather(response) {
   celsiusTemperature = response.data.main.temp;
 
@@ -46,12 +51,46 @@ function showWeather(response) {
     );
 }
 
+//forecastweatherdisplay
+function showForecastWeather(response) {
+  console.log(response);
+  let forecastImgElement = document.querySelector("#forecast-weather-img-col");
+  forecastImgElement.innerHTML = null;
+  //let forecastImg = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecastImg = response.data.list[index];
+    forecastImgElement.innerHTML += `
+        <ul class="forecast-weather-img-border">
+          <li><img src="http://openweathermap.org/img/wn/${forecastImg.weather[0].icon}@2x.png" alt="-" class="forecast-weather-img"></li>
+        </ul>
+        `;
+  }
+
+  let forecastElement = document.querySelector("#forecast-weather-col");
+  forecastElement.innerHTML = null;
+  //let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `   
+        <ul class="forecast-temp">
+          <li>${formatHours(forecast.dt * 1000)}<br />${Math.round(
+      forecast.main.temp
+    )}°</li></ul>
+      `;
+  }
+}
+
 //searchcity
 function searchCity(city) {
   let apiStart = "https://api.openweathermap.org/data/2.5/weather?q=";
   let apiEnd = "&units=metric&appid=6d311b54424188b229639bfec29ddda2";
   let apiUrl = `${apiStart}${city}${apiEnd}`;
   axios.get(apiUrl).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}${apiEnd}`;
+  axios.get(apiUrl).then(showForecastWeather);
 }
 
 function handleSubmit(event) {
@@ -103,8 +142,7 @@ fahrenheitLink.addEventListener("click", convertFahrenheitTemp);
 let celsiusLink = document.querySelector("#cTemp");
 celsiusLink.addEventListener("click", convertCelsiusTemp);
 
-//to prevent calling event when no city-input
 let celsiusTemperature = null;
 
-//to set dafault city
+//setdafaultcity
 searchCity("New York");
