@@ -1,6 +1,6 @@
 //daytimedisplay
-function formattedDate() {
-  let now = new Date();
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -23,9 +23,6 @@ function formattedDate() {
   return `${day} ${hours}:${minutes}`;
 }
 
-let showDayTime = document.querySelector("#day-time");
-showDayTime.innerHTML = formattedDate();
-
 //weatherdisplay
 function showWeather(response) {
   document.querySelector("h1").innerHTML = response.data.name;
@@ -37,6 +34,9 @@ function showWeather(response) {
   );
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
+  );
+  document.querySelector("#day-time").innerHTML = formatDate(
+    response.data.dt * 1000
   );
 }
 

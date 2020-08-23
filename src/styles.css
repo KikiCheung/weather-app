@@ -32,8 +32,9 @@ footer {
   border-radius: 50%;
 }
 
+.last-update,
 #day-time {
-  font-size: 25px;
+  font-size: 20px;
   margin: 0;
 }
 
