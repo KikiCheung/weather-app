@@ -64,7 +64,7 @@ function showForecastWeather(response) {
     forecastImg = response.data.list[index];
     forecastImgElement.innerHTML += `
         <ul class="forecast-weather-img-border">
-          <li><img src="http://openweathermap.org/img/wn/${forecastImg.weather[0].icon}@2x.png" alt="-" class="forecast-weather-img"></li>
+          <li><img src="http://openweathermap.org/img/wn/${forecastImg.weather[0].icon}@2x.png" alt=" " class="forecast-weather-img"></li>
         </ul>
         `;
   }
