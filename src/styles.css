@@ -9,8 +9,8 @@ ul {
 }
 
 footer {
+  margin: 15px 0;
   text-align: center;
-  margin: 0 0 20px 0;
 }
 
 .container {
@@ -76,5 +76,5 @@ footer {
 }
 
 .temp li {
-  margin: 70px auto;
+  margin: 70px 0 0 0;
 }
