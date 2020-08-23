@@ -25,13 +25,13 @@ function formatDate(timestamp) {
 
 //weatherdisplay
 function showWeather(response) {
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#day-time").innerHTML = formatDate(
     response.data.dt * 1000
   );
-  document.querySelector("#temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#temp").innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#humidity").innerHTML = Math.round(
     response.data.main.humidity
   );
@@ -82,23 +82,29 @@ currentLocationbutton.addEventListener("click", getCurrentLocation);
 //tempconversion
 function convertFahrenheitTemp(event) {
   event.preventDefault();
-  let ctemperature = document.querySelector("#temp");
-  let temperature = ctemperature.innerHTML;
-  ctemperature.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  celsiusLink.classList.remove("inactive");
+  fahrenheitLink.classList.add("inactive");
+  let temperatureElement = document.querySelector("#temp");
+  let fTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fTemperature);
 }
 
 function convertCelsiusTemp(event) {
   event.preventDefault();
-  let ftemperature = document.querySelector("#temp");
-  let temperature = ftemperature.innerHTML;
-  ftemperature.innerHTML = Math.round((temperature - 32) / 1.8);
+  celsiusLink.classList.add("inactive");
+  fahrenheitLink.classList.remove("inactive");
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let fahrenheitTemp = document.querySelector("#fTemp");
-fahrenheitTemp.addEventListener("click", convertFahrenheitTemp);
+let fahrenheitLink = document.querySelector("#fTemp");
+fahrenheitLink.addEventListener("click", convertFahrenheitTemp);
 
-let celsiusTemp = document.querySelector("#cTemp");
-celsiusTemp.addEventListener("click", convertCelsiusTemp);
+let celsiusLink = document.querySelector("#cTemp");
+celsiusLink.addEventListener("click", convertCelsiusTemp);
 
-//defaultcity
+//to prevent calling event when no city-input
+let celsiusTemperature = null;
+
+//to set dafault city
 searchCity("New York");

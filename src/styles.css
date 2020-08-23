@@ -57,6 +57,15 @@ footer {
   top: -65px;
 }
 
+.inactive {
+  color: #212529;
+  cursor: default;
+}
+
+.inactive:hover {
+  text-decoration: none;
+}
+
 .otherinfo {
   font-size: 20px;
   margin: 0;
