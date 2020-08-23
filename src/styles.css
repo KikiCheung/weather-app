@@ -1,5 +1,6 @@
 h1 {
   margin: 0;
+  color: #1a237e;
 }
 
 ul {
@@ -17,26 +18,28 @@ footer {
   background-image: linear-gradient(to top, yellow 0%, lightyellow 100%);
   padding: 25px 35px;
   max-width: 550px;
-  max-height: 680px;
+  max-height: 710px;
   margin: 20px auto;
   border-radius: 15px;
+  border: 15px double white;
 }
 
 .current-weather-img-border {
-  width: 270px;
-  height: 270px;
+  width: 250px;
+  height: 250px;
   margin: 20px 0 5px 0;
   padding: 30px;
   border: 10px solid white;
   border-radius: 50%;
+  box-shadow: 2px 3px 5px 1px darkcyan;
 }
 
 #current-weather-img {
   width: 200px;
   height: 200px;
   position: relative;
-  left: -5px;
-  top: -5px;
+  left: -15px;
+  top: -15px;
 }
 
 .last-update,
@@ -64,6 +67,7 @@ footer {
 
 .inactive:hover {
   text-decoration: none;
+  color: #212529;
 }
 
 .otherinfo {
@@ -81,6 +85,7 @@ footer {
   padding: 15px;
   border: 5px solid white;
   border-radius: 50%;
+  box-shadow: 2px 3px 5px 1px darkcyan;
 }
 
 .forecast-weather-img {
