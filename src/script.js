@@ -37,6 +37,9 @@ function showWeather(response) {
     response.data.dt * 1000
   );
   document.querySelector("#temp").innerHTML = Math.round(celsiusTemperature);
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+
   document.querySelector("#humidity").innerHTML = Math.round(
     response.data.main.humidity
   );
@@ -53,7 +56,6 @@ function showWeather(response) {
 
 //forecastweatherdisplay
 function showForecastWeather(response) {
-  console.log(response);
   let forecastImgElement = document.querySelector("#forecast-weather-img-col");
   forecastImgElement.innerHTML = null;
   //let forecastImg = null;

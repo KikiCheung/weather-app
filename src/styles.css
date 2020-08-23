@@ -41,7 +41,7 @@ footer {
 
 .last-update,
 #day-time {
-  font-size: 20px;
+  font-size: 18px;
   margin: 0;
 }
 
@@ -67,8 +67,11 @@ footer {
 }
 
 .otherinfo {
-  font-size: 20px;
+  font-size: 18px;
   margin: 0;
+}
+#description {
+  text-transform: capitalize;
 }
 
 .forecast-weather-img-border li {
